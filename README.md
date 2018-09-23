@@ -8,8 +8,8 @@ It is especially useful for Operations teams who work on master and often don't 
 pico-build is a Makefile of only about 10 lines that:
 
 - is a command-line tool that does input validation on the deploy environment choice
-- updates the dev/ folder using your version control system.
-- exports your tested version in dev/ to stage/ and prod/ folders
+- updates the `dev/` folder using your version control system.
+- exports your tested version in `dev/` to `stage/` and `prod/` folders
 - can be setup in a minute or two.
 
 ## Typical Deploy Folder Structure for Web Developers
@@ -31,7 +31,7 @@ usage: make [help|dev|stage|prod]
 ## Getting Started
 
 1. choose a git, cvs or svnrepo and configure your environment to do git pull (or equivalent command)
-2. cd to the directory which is the parent of your dev/, stage/ and prod/ folders
+2. cd to the directory which is the parent of your `dev/`, `stage/` and `prod/` folders
 3. copy the Makefile to this directory and update it
 4. run it for each environment:
 ```
@@ -45,10 +45,10 @@ make prod
 pico-build has several advantages:
 
 - easiest way to get started learning about three-environment builds
-- no queuing of your build requests
+- no waiting on a central build queue
 - can be committed to version control
 - secure
-- no additional resources required
+- no additional computer resources required
 - can be distributed to end-users
 - requires no licensing or support.
 - less is more!
