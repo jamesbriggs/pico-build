@@ -30,7 +30,7 @@ usage: make [help|dev|stage|prod]
 
 ## Getting Started
 
-1. choose a git, cvs or svnrepo and configure your environment to do git pull (or equivalent command)
+1. choose a git, cvs or svnrepo and configure your environment to do `git pull` (or equivalent command)
 2. cd to the directory which is the parent of your `dev/`, `stage/` and `prod/` folders
 3. copy the Makefile to this directory and update it
 4. run it for each environment:
@@ -50,7 +50,7 @@ pico-build has several advantages:
 - secure
 - no additional computer resources required
 - can be distributed to end-users
-- requires no licensing or support.
+- requires no licensing or support
 - less is more!
 
 ## License
