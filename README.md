@@ -15,9 +15,10 @@ pico-build is a Makefile of only about 10 lines that:
 ## Typical Deploy Folder Structure
 
 ```
-dev/
-stage/
-prod/
+/var/www/
+      dev/
+      stage/
+      prod/
 ```
 
 ## Usage
@@ -31,7 +32,7 @@ usage: make [help|dev|stage|prod]
 1. pick a repo and configure your environment to do git pull or equivalent
 2. cd to the directory which is the parent of your dev/, stage/ and prod/ folders
 3. copy the Makefile to this directory and update it
-4. Run it for each environment:
+4. run it for each environment:
 ```
 make dev
 make stage
