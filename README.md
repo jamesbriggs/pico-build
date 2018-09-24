@@ -21,7 +21,7 @@ It is intended for individual programmers and small teams who want to test and d
          dev/
              html/
              cgi-bin/
-             config/ (all configs start here and are copied to stage/ and prod/ during deploys)
+             config/ (configs start here and are copied to stage/ and prod/ during deploys)
          stage/
              html/
              cgi-bin/
@@ -86,7 +86,7 @@ It can also be used to develop and/or create secure deploy processes.
 
 **Question:** In fact, ``pico-build`` is so small, how can you justify creating a Github project based on a 10-line ``Makefile``?
 
-**Answer:** Although the ``Makefile`` is very short, ``pico-build`` delivers on what it promises. A previous version in bash took about a week to design and much more code to get the same result.
+**Answer:** Although the ``Makefile`` is very short, ``pico-build`` delivers on what it promises. A previous version in ``bash`` took about a week to design and much more code to get the same result.
 
 ---
 
@@ -120,13 +120,13 @@ It can also be used to develop and/or create secure deploy processes.
 
 **Question:** I copypasta'ed your ``Makefile`` and it doesn't seem to work for me. Why?
 
-**Answer:** ``make`` requires tab characters before bash commands, so check if you accidently converted the tabs to spaces. (``vim`` will helpfully show red lines if you do that.)
+**Answer:** ``make`` requires tab characters before ``bash`` commands, so check if you accidently converted the tabs to spaces. (``vim`` will helpfully show red lines if you do that.)
 
 ---
 
 **Question:** Is there commercial support available for ``pico-build``?
 
-**Answer:** Yes, please contact the author for paid Devops design and/or support via my [blog contact form.](http://www.jebriggs.com/contact.html)
+**Answer:** Yes, please contact the author for paid Devops design and/or support via the [blog contact form.](http://www.jebriggs.com/contact.html)
 
 ## License
 
