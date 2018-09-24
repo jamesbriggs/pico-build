@@ -117,9 +117,9 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 **Question:** Can ``cron`` run ``pico-build``?
 
 **Answer:** Yes, but you'll need to do this:
-1. ensure ``make`` and ``cron`` can still read your version control credentials and the path setting, like``PATH=/bin:/usr/bin``, can find ``make``, ``git`` and ``tar``.
-2. and quiet or redirect output to a file to reduce the ``cron`` email notifications.
-3. either set the cwd or do `make -f /path/to/the/pico-build/Makefile action`
+1. ensure ``make`` and ``cron`` can still read your version control credentials and the path setting, like``PATH=/bin:/usr/bin``, and can find ``make``, ``git`` and ``tar``.
+2. quiet or redirect output to a file to reduce the ``cron`` email notifications
+3. either set the cwd or do `make -f /path/to/the/pico-build/Makefile action`.
 
 ---
 
