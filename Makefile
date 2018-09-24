@@ -71,7 +71,7 @@ dev:
 stage prod:
 	$(DISP)mkdir -p $@
 	$(DISP)cmp -s dev/$(VC_VERSION_FILE) $@/$(VC_VERSION_FILE) || exit 1
-	if [[ $(VC_PRODUCT) == 'git' ]]; then \
+	if [[ "$(VC_PRODUCT)" == "git" ]]; then \
 		$(DISP)(cd dev; $(VC_EXPORT_FILES_CMD) | tar -x -C ../$@ && exit); \
 	else \
 		$(DISP)$(VC_EXPORT_FILES_CMD) $@ && exit; \

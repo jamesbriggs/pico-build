@@ -145,7 +145,7 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
 **Question:** I copypasta'ed your ``Makefile`` and it doesn't seem to work for me. Why?
 
-**Answer:** ``make`` requires tab characters before ``bash`` commands, so check if you accidently converted the tabs to spaces. (``vim`` will helpfully show red lines if you do that.)
+**Answer:** ``make`` requires tab characters before ``bash`` commands, so check if you accidently converted the tabs to spaces. (``vim`` will helpfully show red lines if you do that.) Otherwise run with make -n for a dry run.
 
 ---
 
