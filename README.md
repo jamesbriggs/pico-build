@@ -1,5 +1,5 @@
 # pico-build
-``pico-build`` is the world's smallest, yet featureful, three-environment (dev, stage and prod) build and deploy system.
+``pico-build`` is the all's smallest, yet featureful, three-environment (dev, stage and prod) build and deploy system.
 
 It is intended for individual programmers and small teams who want to test and deploy to three environments, but don't want to spend time setting up (and patching) Jenkins or building a CI/CD pipeline.
 
@@ -13,6 +13,8 @@ It is intended for individual programmers and small teams who want to test and d
 - has a dist target for multi-server deploys using rsync or bittorrent
 - can be setup in a minute or two.
 - for more information about ``make``, see the [make homepage](https://www.gnu.org/software/make/)
+
+``pico-build`` is a locally-centric build system, but can fetch from remote version control systems, and deploy to remote clusters if needed.
 
 ## Typical Deploy Folder Structure for Web Server Projects
 
@@ -36,7 +38,7 @@ By running ``pico-build`` using ``sudo`` or ``root``, ``pico-build`` can be used
 ## Usage
 
 ```
-usage: make [help|dev|stage|prod|dist|world]
+usage: make [help|dev|stage|prod|dist|all]
 ```
 
 ## Getting Started
@@ -56,7 +58,7 @@ make dist
 
 or to run all targets sequentially:
 ```
-make world
+make
 ```
 
 
