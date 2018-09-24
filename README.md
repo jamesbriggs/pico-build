@@ -18,9 +18,15 @@ pico-build is a Makefile of only about 10 lines that:
 /var/
      www/
          dev/
+             html/
+             cgi-bin/
              config/
          stage/
+             html/
+             cgi-bin/
          prod/
+             html/
+             cgi-bin/
 ```
 
 By using sudo or root, pico-build can be used to secure your web server.
