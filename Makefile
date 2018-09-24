@@ -28,13 +28,13 @@ VC_PRODUCT:=git
 VC_VERSION_FILE     = .current_version
 
 ifeq ($(VC_PRODUCT), git)
-   VC_VERSION_CMD      = git -C dev rev-parse HEAD
+   VC_LOCAL_VERSION_CMD      = git -C dev rev-parse HEAD
    VC_PULL_CMD         = git -C dev pull
-   VC_EXPORT_FILES_CMD = git archive master
+   VC_LOCAL_EXPORT_FILES_CMD = git archive master
 else
-   VC_VERSION_CMD      = svnversion -n
+   VC_LOCAL_VERSION_CMD      = svnversion -n
    VC_PULL_CMD         = svn up
-   VC_EXPORT_FILES_CMD = svn export dev
+   VC_LOCAL_EXPORT_FILES_CMD = svn export dev
 endif
 
 DISP=@
@@ -58,12 +58,12 @@ check:
 	@which tar
 	@which git
 	$(DISP)$(VC_PULL_CMD)
-	$(DISP)$(VC_VERSION_CMD) > dev/$(VC_VERSION_FILE)
+	$(DISP)$(VC_LOCAL_VERSION_CMD) > dev/$(VC_VERSION_FILE)
 	cat dev/$(VC_VERSION_FILE)
 
 dev:
 	$(DISP)$(VC_PULL_CMD)
-	$(DISP)$(VC_VERSION_CMD) > dev/$(VC_VERSION_FILE)
+	$(DISP)$(VC_LOCAL_VERSION_CMD) > dev/$(VC_VERSION_FILE)
 	@echo "notice: add your chown and test suite commands here for the dev environment"
 	@echo "notice: add your cp, sed, chown and chmod commands here to customize stage and prod environments"
 	@echo "notice: reload/restart your dev server(s) here if needed"
@@ -72,9 +72,9 @@ stage prod:
 	$(DISP)mkdir -p $@
 	$(DISP)cmp -s dev/$(VC_VERSION_FILE) $@/$(VC_VERSION_FILE) && exit 1
 	if [[ "$(VC_PRODUCT)" == "git" ]]; then \
-		$(DISP)(cd dev; $(VC_EXPORT_FILES_CMD) | tar -x -C ../$@ || exit 1); \
+		$(DISP)(cd dev; $(VC_LOCAL_EXPORT_FILES_CMD) | tar -x -C ../$@ || exit 1); \
 	else \
-		$(DISP)$(VC_EXPORT_FILES_CMD) $@ || exit 1; \
+		$(DISP)$(VC_LOCAL_EXPORT_FILES_CMD) $@ || exit 1; \
 	fi
 	$(DISP)cp -p dev/$(VC_VERSION_FILE) $@
 	$(DISP)cp -p $@/config/$@.conf $@/config.conf || exit 1
