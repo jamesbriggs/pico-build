@@ -1,9 +1,7 @@
 # pico-build
 pico-build is the world's smallest, featureful three-environment build and deploy system.
 
-It is intended for individuals and small teams who want to test and deploy to three environments, but don't want to spend time setting up Jenkins or building a CI/CD pipeline yet.
-
-pico-build is especially useful for Operations teams who work on master and often don't get around to setting up separate deploy environments for themselves, or who don't want to cut holes in firewalls (or peer across AWS VPC boundaries.)
+It is intended for individual programmers and small teams who want to test and deploy to three environments, but don't want to spend time setting up Jenkins or building a CI/CD pipeline yet.
 
 ## Concepts
 
@@ -24,6 +22,8 @@ pico-build is a Makefile of only about 10 lines that:
          stage/
          prod/
 ```
+
+By using sudo or root, pico-build can be used to secure your web server.
 
 ## Usage
 
@@ -56,15 +56,25 @@ pico-build has several advantages:
 - requires no licensing or support
 - less is more!
 
+## Operations Teams
+
+pico-build is especially useful for Operations teams who work on master and often don't get around to setting up separate deploy environments for their own team, or who don't want to cut holes in firewalls (or peer across AWS VPC boundaries.)
+
+It can also be used to develop and/or create secure deploy processes.
+
 ## FAQ
 
 Question: Why is the name pico-build?
+
 Answer: Because nano-build was already taken by the nano-os project.
 
+
 Question: It's very small, but aren't you cheating by using the make program?
+
 Answer: Yes. Yes I am. Shamelessly.
 
 Question: In fact, pico-build is so small, how can you justify creating a Github project based on a 10-line Makefile?
+
 Answer: Although the Makefile is very short, pico-build delivers on what it promises. A previous version in bash took about a week to design and much more code to get the same result.
 
 ## License
