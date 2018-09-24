@@ -7,7 +7,7 @@
 # Usage: make [help|check|dev|stage|prod|dist|all]
 # License: MIT License
 # Notes:
-# - dev is your version control HEAD or master branch repo, and stage and prod get file exports. git and svn are supported.
+# - dev is your version control HEAD or master branch repo, and stage and prod are file exports. git and svn are supported.
 # - in a Makefile, column 1 is for make commands. For bash shell commands, tab over at least once.
 # - multi-line shell commands must have semi-colons and ending backslashes and $ is $$
 # - for an advanced Makefile sample, see https://github.com/nanosoft-net/nano-os/blob/master/build/make/generic_makefile
@@ -25,15 +25,15 @@ VC_PRODUCT:=git
 
 ### end of user-defined configuration settings
 
-VC_VERSION_FILE     = .current_version
+VC_VERSION_FILE=.current_version
 
 ifeq ($(VC_PRODUCT), git)
    VC_LOCAL_VERSION_CMD      = git -C dev rev-parse HEAD
-   VC_PULL_CMD         = git -C dev pull
+   VC_PULL_CMD               = git -C dev pull
    VC_LOCAL_EXPORT_FILES_CMD = git archive master
 else
    VC_LOCAL_VERSION_CMD      = svnversion -n
-   VC_PULL_CMD         = svn up
+   VC_PULL_CMD               = svn up
    VC_LOCAL_EXPORT_FILES_CMD = svn export dev
 endif
 
