@@ -67,7 +67,7 @@ make prod
 
 ## Operations Teams
 
-``pico-build`` is especially useful for Operations teams who work on master and often don't get around to setting up separate deploy environments for their own team, or who don't want to cut holes in firewalls (or peer across AWS VPC boundaries.)
+``pico-build`` is especially useful for Operations teams who work on ``master`` or ``HEAD`` branches and often don't get around to setting up deploy environments for their own team, or who don't want to cut holes in firewalls (or peer across AWS VPC boundaries.)
 
 It can also be used to develop and/or create secure deploy processes.
 
