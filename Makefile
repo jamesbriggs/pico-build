@@ -57,12 +57,12 @@ check:
 		&& exit 1
 	@which tar
 	@which git
-	$(DISP)$(VC_PULL_CMD) && exit 1
+	$(DISP)$(VC_PULL_CMD)
 	$(DISP)$(VC_VERSION_CMD) > dev/$(VC_VERSION_FILE)
 	cat dev/$(VC_VERSION_FILE)
 
 dev:
-	$(DISP)$(VC_PULL_CMD) && exit
+	$(DISP)$(VC_PULL_CMD)
 	$(DISP)$(VC_VERSION_CMD) > dev/$(VC_VERSION_FILE)
 	@echo "notice: add your chown and test suite commands here for the dev environment"
 	@echo "notice: add your cp, sed, chown and chmod commands here to customize stage and prod environments"
@@ -70,14 +70,14 @@ dev:
 
 stage prod:
 	$(DISP)mkdir -p $@
-	$(DISP)cmp -s dev/$(VC_VERSION_FILE) $@/$(VC_VERSION_FILE) || exit 1
+	$(DISP)cmp -s dev/$(VC_VERSION_FILE) $@/$(VC_VERSION_FILE) && exit 1
 	if [[ "$(VC_PRODUCT)" == "git" ]]; then \
-		$(DISP)(cd dev; $(VC_EXPORT_FILES_CMD) | tar -x -C ../$@ && exit); \
+		$(DISP)(cd dev; $(VC_EXPORT_FILES_CMD) | tar -x -C ../$@ || exit 1); \
 	else \
-		$(DISP)$(VC_EXPORT_FILES_CMD) $@ && exit; \
+		$(DISP)$(VC_EXPORT_FILES_CMD) $@ || exit 1; \
 	fi
 	$(DISP)cp -p dev/$(VC_VERSION_FILE) $@
-	$(DISP)cp -p $@/config/$@.conf $@/config.conf && exit
+	$(DISP)cp -p $@/config/$@.conf $@/config.conf || exit 1
 	@echo "notice: add your cp, sed, chown and chmod commands here to customize stage and prod environments"
 	@echo "notice: reload/restart your server(s) for the current target action (stage or prod) here if needed"
 
