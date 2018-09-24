@@ -1,1 +1,2 @@
 *.log
+.current_git_hash

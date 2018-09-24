@@ -35,7 +35,7 @@ By running ``pico-build`` using ``sudo`` or ``root``, ``pico-build`` can be used
 ## Usage
 
 ```
-usage: make [help|dev|stage|prod]
+usage: make [help|dev|stage|prod|dist]
 ```
 
 ## Getting Started
@@ -49,6 +49,8 @@ make dev
 # run your tests until they pass ... then ...
 make stage
 make prod
+# for multi-server deployments, you can use rsync or bittorrent
+make dist
 ```
 
 ## Advantages

@@ -5,12 +5,13 @@
 # Usage: make [help|dev|stage|prod]
 # License: MIT License
 # Notes:
-# - dev is your version control HEAD or master branch repo, and stage and prod are exported file copies. git, cvs and svn are supported.
-# - in a Makefile, column 1 is for make commands. For bash shell commands, tab over at least once. Multi-line shell commands must have semi-colons and ending backslashes
+# - dev is your version control HEAD or master branch repo, and stage and prod are exported copies. git and svn are supported.
+# - in a Makefile, column 1 is for make commands. For bash shell commands, tab over at least once.
+# - Multi-line shell commands must have semi-colons and ending backslashes
 # - for an advanced Makefile sample, see https://github.com/nanosoft-net/nano-os/blob/master/build/make/generic_makefile
 
 # these make targets are not files:
-.PHONY: help dev stage prod
+.PHONY: help dev stage prod dist
 
 DEBUG:=yes
 
@@ -20,15 +21,21 @@ ifeq ($(DEBUG), yes)
 endif
 
 help:
-	@echo "usage: $(MAKE) [help|dev|stage|prod]"
+	@echo "usage: $(MAKE) [help|dev|stage|prod|dist]"
 
 dev:
 	$(DISP)git -C $@ pull && exit
+	$(DISP)git -C $@ rev-parse HEAD > $@/.current_git_hash
 	@echo "notice: add your chown and test suite commands here for the dev environment"
+	@echo "notice: add your cp, sed, chown and chmod commands here to customize stage and prod environments"
+	@echo "notice: reload/restart your dev server(s) here if needed"
 
 stage prod:
 	$(DISP)mkdir -p $@
 	$(DISP)(cd dev; git archive master | tar -x -C ../$@ && exit)
 	$(DISP)cp -p $@/config/$@.conf $@/config.conf && exit
-	@echo "notice: add your cp, sed and chown commands here to customize stage and prod environments"
+	@echo "notice: add your cp, sed, chown and chmod commands here to customize stage and prod environments"
+	@echo "notice: reload/restart your server(s) for the current target action (stage or prod) here if needed"
 
+dist:
+	@echo "notice: add your rsync or bittorrent command(s) here for multi-server deployments if needed"
