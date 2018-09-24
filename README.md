@@ -1,5 +1,5 @@
 # pico-build
-pico-build is the world's smallest, featureful three-environment build and deploy system.
+pico-build is the world's smallest, featureful three-environment (dev, stage and prod) build and deploy system.
 
 It is intended for individual programmers and small teams who want to test and deploy to three environments, but don't want to spend time setting up Jenkins or building a CI/CD pipeline yet.
 
@@ -104,6 +104,12 @@ It can also be used to develop and/or create secure deploy processes.
 
 ---
 
+**Question:** I'm new to version control but I want to use pico-build. Which version control program should I use?
+
+**Answer:** You should use whatever version control program your company or friend use. Github uses git. Otherwise svn is my favorite and is the easiest to learn.
+
+---
+
 **Question:** How can I ask pico-build to check for changes in dev/ before doing pointless stage and prod deploys?
 
 **Answer:** As with any Makefile, remove dev from the .PHONY list, and add a filename that changes just after the dev: target (on the same line.)
@@ -118,7 +124,7 @@ It can also be used to develop and/or create secure deploy processes.
 
 **Question:** Is there commercial support available for pico-build?
 
-**Answer:** Yes, please contact the author to pay for design and/or support.
+**Answer:** Yes, please contact the author to pay for design and/or support via my blog contact form.
 
 ## License
 
