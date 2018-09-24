@@ -19,7 +19,7 @@ It is intended for individual programmers and small teams who want to test and d
 Normally, most ``make`` dependencies are file timestamps. However, the ``pico-build`` ``Makefile`` does not have any timestamp dependencies,
 only phony targets and the repo version. Thus ``make`` is used like a Lisp or Prolog rules engine. The bash exit command is used to exit early, kind of like tail recursion optimization.
 
-``pico-build`` is a locally-centric build system, but that's often not a limitation since it can fetch from remote version control systems, and deploy to remote clusters if needed.
+``pico-build`` is a locally-centric build system, but that's often not a limitation since it can fetch from remote version control systems, and deploy to remote clusters as needed.
 
 ## Typical Deploy Folder Structure for Web Server Projects
 
@@ -80,6 +80,7 @@ make all
 - can be distributed widely to clusters or end-users
 - requires no licensing or support (if you do need commercial support, see the FAQ below)
 - portable - runs on all commonly-used operating systems
+- many release engineers and QA staff are already familiar with ``make``
 - less is more!
 
 ## Operations Teams
