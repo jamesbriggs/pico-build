@@ -49,7 +49,7 @@ usage: make [help|check|dev|stage|prod|dist|all]
 ## Getting Started
 
 1. choose your ``git`` or ``svn`` repo and configure your login environment to do a successful password-less `git pull` (or equivalent command) from the terminal
-2. add .check_version to your .gitignore file and commit .gitignore
+2. add .current_version to your .gitignore file and commit .gitignore
 3. ``cd`` to your build home directory which is the parent of your `dev/`, `stage/` and `prod/` folders and do an initial `git clone` to the ``dev`` folder
 4. ``cp`` the ``pico-build`` ``Makefile`` to the home directory and configure as needed. Change the permissions so that unauthorized users cannot modify it, usually with `chown root:root Makefile; chmod 644 Makefile`
 5. do `make check` to do an initial test of your configuration
