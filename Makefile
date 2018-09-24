@@ -37,8 +37,8 @@ all: dev stage prod dist
 	@echo "notice: convenience make target to run several other targets sequentially"
 
 check:
-	@echo "notice: checking your setup. This action is intended to be used only after your initial clone, not per deploy."
-	@cd dev || echo "error: dev/ not found. are you in the build home directory? if so, is there an initial repo clone?" \
+	@echo "notice: checking your setup. check is intended to be used right after your initial clone, not per deploy."
+	@cd dev || echo "error: dev/ not found. are we in the build home directory? if so, is there an initial repo clone?" \
 		&& exit 1
 	@which tar
 	@which git

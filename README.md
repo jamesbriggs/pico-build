@@ -43,11 +43,12 @@ usage: make [help|check|dev|stage|prod|dist|all]
 
 ## Getting Started
 
-1. choose a ``git``, ``cvs`` or ``svn`` repo and configure your environment to do a successful password-less `git pull` (or equivalent command)
-2. ``cd`` to the home directory which is the parent of your `dev/`, `stage/` and `prod/` folders and do an initial `git clone` to ``dev/``
-3. ``cp`` the ``Makefile`` to the home directory and configure as needed. Change the permissions so that unauthorized users cannot modify it, usually with `chown root:root Makefile; chmod 644 Makefile`
-4. do `make check` to do an initial test of your configuration
-5. run ``make`` for each environment:
+1. choose your ``git`` or ``svn`` repo and configure your login environment to do a successful password-less `git pull` (or equivalent command) from the terminal
+2. add .check_version to your .gitignore file and commit .gitignore
+3. ``cd`` to your build home directory which is the parent of your `dev/`, `stage/` and `prod/` folders and do an initial `git clone` to the ``dev`` folder
+4. ``cp`` the ``pico-build`` ``Makefile`` to the home directory and configure as needed. Change the permissions so that unauthorized users cannot modify it, usually with `chown root:root Makefile; chmod 644 Makefile`
+5. do `make check` to do an initial test of your configuration
+6. run ``make`` for each environment:
 ```
 make dev
 # run your tests until they pass ... then ...
@@ -57,11 +58,10 @@ make prod
 make dist
 ```
 
-or to run all targets sequentially:
+After you have tested the above, you can optionally run all deploy steps sequentially with this command (not recommended unless you have great tests):
 ```
 make all
 ```
-
 
 ## Advantages
 
