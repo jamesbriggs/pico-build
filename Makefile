@@ -2,7 +2,7 @@
 # Purpose: world's smallest but featureful three-environment build and deploy system for dev, stage and prod
 # Copyright: James Briggs, USA 2018
 # Environment: make
-# Usage: make [help|dev|stage|prod|dist]
+# Usage: make [help|dev|stage|prod|dist|world]
 # License: MIT License
 # Notes:
 # - dev is your version control HEAD or master branch repo, and stage and prod get file exports. git and svn are supported.
@@ -11,7 +11,7 @@
 # - for an advanced Makefile sample, see https://github.com/nanosoft-net/nano-os/blob/master/build/make/generic_makefile
 
 # these make targets are not files:
-.PHONY: help dev stage prod dist
+.PHONY: help dev stage prod dist world
 
 DEBUG:=yes
 
@@ -21,7 +21,7 @@ ifeq ($(DEBUG), yes)
 endif
 
 help:
-	@echo "usage: $(MAKE) [help|dev|stage|prod|dist]"
+	@echo "usage: $(MAKE) [help|dev|stage|prod|dist|world]"
 
 dev:
 	$(DISP)git -C $@ pull && exit
@@ -39,4 +39,7 @@ stage prod:
 
 dist:
 	@echo "notice: add your rsync or bittorrent command(s) here for multi-server deployments if needed"
+
+world: dev stage prod dist
+	@echo "notice: convenience make target to run several other targets sequentially"
 

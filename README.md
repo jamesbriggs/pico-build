@@ -5,11 +5,12 @@ It is intended for individual programmers and small teams who want to test and d
 
 ## Concepts
 
-``pico-build`` is a ``Makefile`` of only about 10 lines that:
+``pico-build`` is a ``Makefile`` of only about 10 executable lines that:
 
 - is a command-line tool that does input validation on the deploy environment choice
-- updates the `dev/` folder using your version control system.
+- updates the `dev/` folder using your version control system
 - exports your tested version in `dev/` to `stage/` and `prod/` folders
+- has a dist target for multi-server deploys using rsync or bittorrent
 - can be setup in a minute or two.
 - for more information about ``make``, see the [make homepage](https://www.gnu.org/software/make/)
 
@@ -35,7 +36,7 @@ By running ``pico-build`` using ``sudo`` or ``root``, ``pico-build`` can be used
 ## Usage
 
 ```
-usage: make [help|dev|stage|prod|dist]
+usage: make [help|dev|stage|prod|dist|world]
 ```
 
 ## Getting Started
@@ -49,9 +50,15 @@ make dev
 # run your tests until they pass ... then ...
 make stage
 make prod
-# for multi-server deployments, you can use rsync or bittorrent
+# for multi-server deployments, you can use rsync or bittorrent ...
 make dist
 ```
+
+or to run all squentially:
+```
+make world
+```
+
 
 ## Advantages
 
