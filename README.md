@@ -106,7 +106,7 @@ It can also be used to develop and/or create secure deploy processes.
 
 **Question:** How can I ask pico-build to check for changes in dev/ before doing pointless stage and prod deploys?
 
-**Answer:** As with any Makefile, remove dev from the .PHONY list, and add a filename that changes just after dev: (on the same line.)
+**Answer:** As with any Makefile, remove dev from the .PHONY list, and add a filename that changes just after the dev: target (on the same line.)
 
 ---
 
