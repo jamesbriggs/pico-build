@@ -121,7 +121,7 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
 **Question:** How can I ask ``pico-build`` to check for changes in `dev/` before doing pointless ``stage`` and ``prod`` deploys?
 
-**Answer:** As with any ``Makefile``, remove ``dev`` from the `.PHONY` list, and add a filename that changes based on the commit hash (like ``git rev-parse HEAD > .current_git_hash`` just after the `dev:` target (on the same line.)
+**Answer:** As with any ``Makefile``, remove ``dev`` from the `.PHONY` list, and add a filename that changes based on the commit hash (like ``git rev-parse HEAD > .current_git_hash``) just after the `dev:` target (on the same line.)
 
 ---
 
