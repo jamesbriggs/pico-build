@@ -17,7 +17,7 @@ It is intended for individual programmers and small teams who want to test and d
 
 ```
 /var/
-     www/ (parent folder)
+     www/ (home folder)
          dev/
              html/
              cgi-bin/
@@ -41,8 +41,8 @@ usage: make [help|dev|stage|prod]
 ## Getting Started
 
 1. choose a ``git``, ``cvs`` or ``svn`` repo and configure your environment to do a successful password-less `git pull` (or equivalent command)
-2. cd to the directory which is the parent of your `dev/`, `stage/` and `prod/` folders
-3. copy the ``Makefile`` to this directory and update it
+2. ``cd`` to the home directory which is the parent of your `dev/`, `stage/` and `prod/` folders and do an initial `git clone` to ``dev/``
+3. ``cp`` the ``Makefile`` to the home directory and configure as needed
 4. run it for each environment:
 ```
 make dev
