@@ -90,7 +90,7 @@ It can also be used to develop and/or create secure deploy processes.
 
 ## Supported Environments
 
-``pico-build`` will work on any operating system that supports ``make``. It has been tested on CentOS and Mac OS X. It will probably work on Windows under Cygwin or [Microsoft Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+``pico-build`` will work on any operating system that supports ``make``. It has been tested on CentOS/Redhat and Mac OS X which both use ``GNU make``. It will probably work on Windows under Cygwin or [Microsoft Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
@@ -117,7 +117,7 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 **Question:** Can ``pico-build`` be run by ``cron``?
 
 **Answer:** Yes, but you'll need to do this:
-1. ensure ``make`` and ``cron`` can still read your version control credentials and ``PATH`` can find ``make``, ``mkdir``, ``cp``, and ``git``.
+1. ensure ``make`` and ``cron`` can still read your version control credentials and the path setting, like``PATH=/bin:/usr/bin``, can find ``make``, ``git`` and ``tar``.
 2. and quiet or redirect output to a file to reduce the ``cron`` email notifications.
 3. either set the cwd or do `make -f /path/to/the/pico-build/Makefile action`
 
@@ -126,7 +126,7 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 **Question:** How does the ``pico-build`` ``Makefile`` work?
 
 **Answer:** ``pico-build`` uses basic ``make`` functionality:
-1. ``help``, ``check``, ``dev``, ``stage`` and ``prod`` are ``make`` targets, or actions. When you say `make dev`, ``dev`` is the target rule and ``$@`` is assigned 'dev'.
+1. ``help``, ``check``, ``dev``, ``stage``, ``prod``, ``dist`` and ``all`` are ``make`` targets, or actions. When you say `make dev`, ``dev`` is the target rule and ``$@`` is assigned 'dev'.
 2. `DEBUG` toggles `$(DISP)` to @ or blank to control ``make``'s display of command execution.
 
 ---
@@ -152,6 +152,10 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 **Question:** Is there commercial support available for ``pico-build``?
 
 **Answer:** Yes, please contact the author for paid Devops design and/or support via the [blog contact form.](http://www.jebriggs.com/contact.html)
+
+## Copyright
+
+Copyright James Briggs, USA 2018
 
 ## License
 
