@@ -72,17 +72,39 @@ It can also be used to develop and/or create secure deploy processes.
 
 Question: Why is the name pico-build?
 
-Answer: Because nano-build was already taken by the nano-os project.
+Answer: Originally I wanted to use nano-build, but [nano-os](https://github.com/nanosoft-net/nano-os) already has a build system.
 
 
 Question: It's very small, but aren't you cheating by using the make program?
 
 Answer: Yes. Yes I am. Shamelessly.
 
+
 Question: In fact, pico-build is so small, how can you justify creating a Github project based on a 10-line Makefile?
 
 Answer: Although the Makefile is very short, pico-build delivers on what it promises. A previous version in bash took about a week to design and much more code to get the same result.
 
+
+Question: Can pico-build be run by cron?
+
+Answer: Yes, but you'll need to do things: ensure make can still read your version control credentials, and quiet or redirect output to a file to reduce the cron email notifications.
+
+
+Question: How does the Makefile work?
+
+Answer: help, dev, stage and work are targets, or actions. When you say `make dev`, dev is the target rule and $@ is assigned 'dev'. DEBUG toggles $(DISP) to @ or blank to control make's display of command execution.
+
+
+Question: How can I ask pico-build to check for changes in dev/ before doing pointless stage and prod deploys?
+
+Answer: As with any Makefile, remove dev from the .PHONY list, and add a filename that changes just after dev: (on the same line.)
+
+
+Question: I copypasta'ed your Makefile and now it doesn't work. Why?
+
+Answer: make requires tab characters before bash commands, so check if you accidently converted those to spaces. (vim will helpfully show red lines if you do that.)
+
 ## License
 
 MIT License
+

@@ -3,6 +3,7 @@
 # Copyright: James Briggs, USA 2018
 # Environment: make
 # Usage: make [help|dev|stage|prod]
+# License: MIT License
 # Notes:
 # - dev is your version control HEAD or master branch repo, and stage and prod are exported file copies. git, cvs and svn are supported.
 # - in a Makefile, column 1 is for make commands. For bash shell commands, tab over at least once. Multi-line shell commands must have semi-colons and ending backslashes
