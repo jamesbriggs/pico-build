@@ -87,12 +87,16 @@ Answer: Although the Makefile is very short, pico-build delivers on what it prom
 
 Question: Can pico-build be run by cron?
 
-Answer: Yes, but you'll need to do things: ensure make can still read your version control credentials, and quiet or redirect output to a file to reduce the cron email notifications.
+Answer: Yes, but you'll need to do 2 things:
+1. ensure make can still read your version control credentials
+2. and quiet or redirect output to a file to reduce the cron email notifications.
 
 
 Question: How does the Makefile work?
 
-Answer: help, dev, stage and work are targets, or actions. When you say `make dev`, dev is the target rule and $@ is assigned 'dev'. DEBUG toggles $(DISP) to @ or blank to control make's display of command execution.
+Answer: pico-build uses basic make functionality:
+1. help, dev, stage and work are make targets, or actions. When you say `make dev`, dev is the target rule and $@ is assigned 'dev'.
+2. DEBUG toggles $(DISP) to @ or blank to control make's display of command execution.
 
 
 Question: How can I ask pico-build to check for changes in dev/ before doing pointless stage and prod deploys?
