@@ -115,13 +115,13 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
 **Question:** I'm new to version control but I want to use ``pico-build``. Which version control program should I use?
 
-**Answer:** You should use whatever version control program your company or friends use. Github uses ``git``. Otherwise, ``svn`` is my favorite and is the easiest to learn because of its clear command structure.
+**Answer:** You should use whatever version control program that your company or friends use. Github uses ``git``. Otherwise, ``svn`` is my favorite and is the easiest to learn because of its clear command structure.
 
 ---
 
 **Question:** How can I ask ``pico-build`` to check for changes in `dev/` before doing pointless ``stage`` and ``prod`` deploys?
 
-**Answer:** As with any ``Makefile``, remove ``dev`` from the `.PHONY` list, and add a filename that changes just after the `dev:` target (on the same line.)
+**Answer:** As with any ``Makefile``, remove ``dev`` from the `.PHONY` list, and add a filename that changes based on the commit hash just after the `dev:` target (on the same line.)
 
 ---
 
