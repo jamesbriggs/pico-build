@@ -9,7 +9,7 @@
 # Notes:
 # - dev is your version control HEAD or master branch repo, and stage and prod get file exports. git and svn are supported.
 # - in a Makefile, column 1 is for make commands. For bash shell commands, tab over at least once.
-# - Multi-line shell commands must have semi-colons and ending backslashes and $ is $$
+# - multi-line shell commands must have semi-colons and ending backslashes and $ is $$
 # - for an advanced Makefile sample, see https://github.com/nanosoft-net/nano-os/blob/master/build/make/generic_makefile
 
 ### start of user-defined configuration settings
@@ -42,7 +42,7 @@ ifeq ($(DEBUG), yes)
    DISP=
 endif
 
-# these make targets are not to be considered as files by make:
+# these make targets are not to be considered as filenames:
 .PHONY: all check dev dist help prod stage
 
 help:
