@@ -16,8 +16,8 @@ It is intended for individual programmers and small teams who want to test and d
 
 ## Advanced Concepts
 
-Normally, most ``make`` dependencies are file timestamps. However, the ``pico-build`` ``Makefile`` does not have any timestamp dependencies,
-only phony targets and the repo version. Thus ``make`` is used like a Lisp or Prolog rules engine. The bash exit command is used to exit early, kind of like tail recursion optimization.
+Normally, most ``make`` dependencies are file timestamps. However, the ``pico-build`` ``Makefile`` does not use timestamps,
+only phony targets and the repo version. Thus ``make`` is used like a Lisp or Prolog rules engine. The bash ``exit`` command is used to stop early, kind of like tail recursion optimization.
 
 ``pico-build`` is a locally-centric build system, but that's often not a limitation since it can fetch from remote version control systems, and deploy to remote clusters as needed.
 
@@ -141,7 +141,7 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
 **Question:** Does ``pico-build`` check for changes in `dev/` before doing pointless ``stage`` and ``prod`` deploys?
 
-**Answer:** Yes, this is handled by comparing the content of dev/.current_version against the same file in stage/ or prod/.
+**Answer:** Yes, this is handled by comparing the content of dev/.current_version against the same filename in stage/ or prod/.
 
 ---
 
