@@ -125,7 +125,7 @@ It can also be used to develop and/or create secure deploy processes.
 
 **Question:** Is there commercial support available for pico-build?
 
-**Answer:** Yes, please contact the author to pay for design and/or support via my blog contact form.
+**Answer:** Yes, please contact the author for paid Devops design and/or support via my [blog contact form.](http://www.jebriggs.com/contact.html)
 
 ## License
 
