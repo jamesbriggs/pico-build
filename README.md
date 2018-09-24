@@ -1,5 +1,7 @@
 # pico-build
-pico-build is the world's smallest, featureful three-environment build and deploy system intended for individuals and small teams who want to test and deploy to three environments, but don't want to spend time setting up Jenkins or building a CI/CD pipeline yet.
+pico-build is the world's smallest, featureful three-environment build and deploy system.
+
+It is intended for individuals and small teams who want to test and deploy to three environments, but don't want to spend time setting up Jenkins or building a CI/CD pipeline yet.
 
 pico-build is especially useful for Operations teams who work on master and often don't get around to setting up separate deploy environments for themselves, or who don't want to cut holes in firewalls (or peer across AWS VPC boundaries.)
 
@@ -31,7 +33,7 @@ usage: make [help|dev|stage|prod]
 
 ## Getting Started
 
-1. choose a git, cvs or svn repo and configure your environment to do a successful `git pull` (or equivalent command)
+1. choose a git, cvs or svn repo and configure your environment to do a successful password-less `git pull` (or equivalent command)
 2. cd to the directory which is the parent of your `dev/`, `stage/` and `prod/` folders
 3. copy the Makefile to this directory and update it
 4. run it for each environment:
