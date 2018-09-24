@@ -1,3 +1,5 @@
+# #!/usr/bin/make -f
+#
 # Program: pico-build Makefile
 # Purpose: all's smallest but featureful three-environment build and deploy system for dev, stage and prod
 # Copyright: James Briggs, USA 2018
@@ -12,8 +14,8 @@
 
 ### start of user-defined  configuration settings
 
-# change from all to help if you want to enforce a more deliberate usage than 'deploy all'
-.DEFAULT_GOAL:=all
+# change from help to all if you want `make' with no action to logically do a `deploy all'
+.DEFAULT_GOAL:=help
 
 # change to yes or no for debugging display information
 DEBUG:=yes
@@ -32,9 +34,10 @@ all: dev stage prod dist
 	@echo "notice: convenience make target to run several other targets sequentially"
 
 check:
-	@echo "notice: checking your pico-build setup ..."
-	cd dev || echo "error: are you running make from the build home directory? if so, have you cloned your repo into dev/ ?"
-	git -C dev rev-parse HEAD
+	@echo "notice: checking your pico-build setup. This action is intended to be used during pico-build setup, not per deploy ..."
+	@cd dev || echo "error: dev/ not found. are you running make from your build home directory? if so, have you done the initial repo clone into dev/ ?" && exit 1
+	@which git
+	$(DISP)git -C dev rev-parse HEAD || exit 1
 
 help:
 	@echo "usage: $(MAKE) [help|check|dev|stage|prod|dist|all]"

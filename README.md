@@ -58,7 +58,7 @@ make dist
 
 or to run all targets sequentially:
 ```
-make
+make all
 ```
 
 
