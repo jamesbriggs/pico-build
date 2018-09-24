@@ -16,6 +16,7 @@
 
 # change from 'help' to 'all' (without quotes) if you want `make' by default to do a logical `deploy all' (not recommended)
 .DEFAULT_GOAL:=help
+.PRECIOUS:=
 
 # change to 'yes' or 'no' (without quotes) for debugging display information
 DEBUG:=yes
@@ -70,14 +71,14 @@ dev:
 
 stage prod:
 	$(DISP)mkdir -p $@
-	$(DISP)cmp -s dev/$(VC_VERSION_FILE) $@/$(VC_VERSION_FILE) && exit 1
+	$(DISP)cmp -s dev/$(VC_VERSION_FILE) $@/$(VC_VERSION_FILE) && exit 0 # if the versions are the same, then stop
 	if [[ "$(VC_PRODUCT)" == "git" ]]; then \
-		$(DISP)(cd dev; $(VC_LOCAL_EXPORT_FILES_CMD) | tar -x -C ../$@ || exit 1); \
+		$(DISP)(cd dev; $(VC_LOCAL_EXPORT_FILES_CMD) | tar -x -C ../$@); \
 	else \
-		$(DISP)$(VC_LOCAL_EXPORT_FILES_CMD) $@ || exit 1; \
+		$(DISP)$(VC_LOCAL_EXPORT_FILES_CMD) $@; \
 	fi
 	$(DISP)cp -p dev/$(VC_VERSION_FILE) $@
-	$(DISP)cp -p $@/config/$@.conf $@/config.conf || exit 1
+	$(DISP)cp -p $@/config/$@.conf $@/config.conf
 	@echo "notice: add your cp, sed, chown and chmod commands here to customize stage and prod environments"
 	@echo "notice: reload/restart your server(s) for the current target action (stage or prod) here if needed"
 
