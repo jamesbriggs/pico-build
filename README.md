@@ -14,7 +14,12 @@ It is intended for individual programmers and small teams who want to test and d
 - can be setup in a minute or two.
 - for more information about ``make``, see the [make homepage](https://www.gnu.org/software/make/)
 
-``pico-build`` is a locally-centric build system, but can fetch from remote version control systems, and deploy to remote clusters if needed.
+## Advanced Concepts
+
+Normally, most ``make`` dependencies are file timestamps. However, the ``pico-build`` ``Makefile`` does not have any timestamp dependencies,
+only phony targets and the repo version. Thus ``make`` is used like a Lisp or Prolog rules engine. The bash exit command is used to exit early, kind of like tail recursion optimization.
+
+``pico-build`` is a locally-centric build system, but that's often not a limitation since it can fetch from remote version control systems, and deploy to remote clusters if needed.
 
 ## Typical Deploy Folder Structure for Web Server Projects
 
