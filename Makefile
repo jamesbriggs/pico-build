@@ -54,8 +54,8 @@ all: dev stage prod dist
 
 check:
 	@echo "notice: checking your setup. check is intended to be used right after your initial clone, not per deploy."
-	@cd dev || echo "error: dev/ not found. are we in the build home directory? if so, is there an initial repo clone?" \
-		&& exit 1
+	@cd dev || { echo "error: dev/ not found. are we in the build home directory? if so, is there an initial repo clone?"; \
+		exit 1; }
 	@which tar
 	@which git
 	$(DISP)$(VC_PULL_CMD)
@@ -71,7 +71,7 @@ dev:
 
 stage prod:
 	$(DISP)mkdir -p $@
-	$(DISP)cmp -s dev/$(VC_VERSION_FILE) $@/$(VC_VERSION_FILE) && exit 0 # if the versions are the same, then stop
+	$(DISP)cmp -s dev/$(VC_VERSION_FILE) $@/$(VC_VERSION_FILE) && exit 2 # if the versions are the same, then stop
 	if [[ "$(VC_PRODUCT)" == "git" ]]; then \
 		$(DISP)(cd dev; $(VC_LOCAL_EXPORT_FILES_CMD) | tar -x -C ../$@); \
 	else \
