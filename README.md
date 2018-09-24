@@ -62,6 +62,7 @@ make prod
 - no additional RAM or disk space required
 - can be distributed widely to clusters or end-users
 - requires no licensing or support (if you do need commercial support, see the FAQ below)
+- portable - runs on all commonly-used operating systems
 - less is more!
 
 ## Operations Teams
@@ -69,6 +70,12 @@ make prod
 ``pico-build`` is especially useful for Operations teams who work on master and often don't get around to setting up separate deploy environments for their own team, or who don't want to cut holes in firewalls (or peer across AWS VPC boundaries.)
 
 It can also be used to develop and/or create secure deploy processes.
+
+## Supported Environments
+
+``pico-build`` will work on any operating system that supports ``make``. It has been tested on CentOS and Mac OS X. It will probably work on Windows under Cygwin or [Microsoft Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
 ## FAQ
 
