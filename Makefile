@@ -2,7 +2,7 @@
 # Purpose: all's smallest but featureful three-environment build and deploy system for dev, stage and prod
 # Copyright: James Briggs, USA 2018
 # Environment: make
-# Usage: make [help|dev|stage|prod|dist|all]
+# Usage: make [help|check|dev|stage|prod|dist|all]
 # License: MIT License
 # Notes:
 # - dev is your version control HEAD or master branch repo, and stage and prod get file exports. git and svn are supported.
@@ -10,22 +10,34 @@
 # - Multi-line shell commands must have semi-colons and ending backslashes
 # - for an advanced Makefile sample, see https://github.com/nanosoft-net/nano-os/blob/master/build/make/generic_makefile
 
-# these make targets are not files:
-.PHONY: help dev stage prod dist all
+### start of user-defined  configuration settings
 
+# change from all to help if you want to enforce a more deliberate usage than 'deploy all'
 .DEFAULT_GOAL:=all
+
+# change to yes or no for debugging display information
 DEBUG:=yes
+
+### end of user-defined  configuration settings
 
 DISP=@
 ifeq ($(DEBUG), yes)
    DISP=
 endif
 
+# these make targets are not actually files:
+.PHONY: all check dev dist help prod stage
+
 all: dev stage prod dist
 	@echo "notice: convenience make target to run several other targets sequentially"
 
+check:
+	@echo "notice: checking your pico-build setup ..."
+	cd dev || echo "error: are you running make from the build home directory? if so, have you cloned your repo into dev/ ?"
+	git -C dev rev-parse HEAD
+
 help:
-	@echo "usage: $(MAKE) [help|dev|stage|prod|dist|all]"
+	@echo "usage: $(MAKE) [help|check|dev|stage|prod|dist|all]"
 
 dev:
 	$(DISP)git -C $@ pull && exit

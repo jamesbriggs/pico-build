@@ -38,7 +38,7 @@ By running ``pico-build`` using ``sudo`` or ``root``, ``pico-build`` can be used
 ## Usage
 
 ```
-usage: make [help|dev|stage|prod|dist|all]
+usage: make [help|check|dev|stage|prod|dist|all]
 ```
 
 ## Getting Started
@@ -110,16 +110,17 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
 **Question:** Can ``pico-build`` be run by ``cron``?
 
-**Answer:** Yes, but you'll need to do 2 things:
+**Answer:** Yes, but you'll need to do this:
 1. ensure ``make`` and ``cron`` can still read your version control credentials and ``PATH`` can find ``make``, ``mkdir``, ``cp``, and ``git``.
 2. and quiet or redirect output to a file to reduce the ``cron`` email notifications.
+3. either set the cwd or do `make -f /path/to/the/pico-build/Makefile action`
 
 ---
 
 **Question:** How does the ``pico-build`` ``Makefile`` work?
 
 **Answer:** ``pico-build`` uses basic ``make`` functionality:
-1. ``help``, ``dev``, ``stage`` and ``prod`` are ``make`` targets, or actions. When you say `make dev`, ``dev`` is the target rule and ``$@`` is assigned 'dev'.
+1. ``help``, ``check``, ``dev``, ``stage`` and ``prod`` are ``make`` targets, or actions. When you say `make dev`, ``dev`` is the target rule and ``$@`` is assigned 'dev'.
 2. `DEBUG` toggles `$(DISP)` to @ or blank to control ``make``'s display of command execution.
 
 ---
