@@ -14,7 +14,7 @@
 
 ### start of user-defined  configuration settings
 
-# change from 'help' to 'all' (without quotes) if you want `gnu make' by default to do a logical `deploy all' (not recommended)
+# change from 'help' to 'all' (without quotes) if you want `make' by default to do a logical `deploy all' (not recommended)
 .DEFAULT_GOAL:=help
 
 # change to 'yes' or 'no' (without quotes) for debugging display information
@@ -37,8 +37,9 @@ all: dev stage prod dist
 	@echo "notice: convenience make target to run several other targets sequentially"
 
 check:
-	@echo "notice: checking your setup. This action is intended to be used only after your initial clone, not per deploy ..."
-	@cd dev || echo "error: dev/ not found. are you in your build home directory? if so, is there an initial repo clone in dev/?" && exit 1
+	@echo "notice: checking your setup. This action is intended to be used only after your initial clone, not per deploy."
+	@cd dev || echo "error: dev/ not found. are you in the build home directory? if so, is there an initial repo clone?" \
+		&& exit 1
 	@which tar
 	@which git
 	$(DISP)git -C dev pull && exit 1
