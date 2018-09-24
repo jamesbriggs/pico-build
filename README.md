@@ -42,7 +42,7 @@ usage: make [help|dev|stage|prod]
 
 1. choose a ``git``, ``cvs`` or ``svn`` repo and configure your environment to do a successful password-less `git pull` (or equivalent command)
 2. ``cd`` to the home directory which is the parent of your `dev/`, `stage/` and `prod/` folders and do an initial `git clone` to ``dev/``
-3. ``cp`` the ``Makefile`` to the home directory and configure as needed
+3. ``cp`` the ``Makefile`` to the home directory and configure as needed. Change the permissions so that unauthorized users cannot modify it, usually with `chown root:root Makefile; chmod 644 Makefile`
 4. run it for each environment:
 ```
 make dev
