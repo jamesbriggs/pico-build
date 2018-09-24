@@ -131,9 +131,9 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
 ---
 
-**Question:** How can I ask ``pico-build`` to check for changes in `dev/` before doing pointless ``stage`` and ``prod`` deploys?
+**Question:** Does ``pico-build`` check for changes in `dev/` before doing pointless ``stage`` and ``prod`` deploys?
 
-**Answer:** After the `stage prod:` target (on the same line) add one space followed by the hash filename, dev/.current_git_hash
+**Answer:** Yes, this is handled by comparing the content of dev/.current_version against the same file in stage/ or prod/.
 
 ---
 

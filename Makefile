@@ -14,10 +14,10 @@
 
 ### start of user-defined  configuration settings
 
-# change from help to all if you want `make' with no action to logically do a `deploy all'
+# change from 'help' to 'all' (without quotes) if you want `make' with no action to logically do a `deploy all' (not really recommended)
 .DEFAULT_GOAL:=help
 
-# change to yes or no for debugging display information
+# change to 'yes' or 'no' (without quotes) for debugging display information
 DEBUG:=yes
 
 ### end of user-defined  configuration settings
@@ -34,29 +34,32 @@ all: dev stage prod dist
 	@echo "notice: convenience make target to run several other targets sequentially"
 
 check:
-	@echo "notice: checking your pico-build setup. This action is intended to be used during pico-build setup, not per deploy ..."
+	@echo "notice: checking your pico-build setup. This action is intended to be used during pico-build setup after your initial clone, not per deploy ..."
 	@cd dev || echo "error: dev/ not found. are you running make from your build home directory? if so, have you done the initial repo clone into dev/ ?" && exit 1
 	@which git
-	$(DISP)git -C dev rev-parse HEAD || exit 1
+	$(DISP)git -C dev pull && exit 1
+	$(DISP)git -C dev rev-parse HEAD > dev/.current_version
+	cat dev/.current_version
 
 help:
 	@echo "usage: $(MAKE) [help|check|dev|stage|prod|dist|all]"
 
 dev:
-	$(DISP)git -C $@ pull && exit
-	$(DISP)git -C $@ rev-parse HEAD > $@/.current_git_hash
+	$(DISP)git -C dev pull && exit
+	$(DISP)git -C dev rev-parse HEAD > dev/.current_version
 	@echo "notice: add your chown and test suite commands here for the dev environment"
 	@echo "notice: add your cp, sed, chown and chmod commands here to customize stage and prod environments"
 	@echo "notice: reload/restart your dev server(s) here if needed"
 
 stage prod:
 	$(DISP)mkdir -p $@
+	$(DISP)cmp -s dev/.current_version $@/.current_version || exit 1
 	$(DISP)(cd dev; git archive master | tar -x -C ../$@ && exit)
+	$(DISP)cp -p dev/.current_version $@
 	$(DISP)cp -p $@/config/$@.conf $@/config.conf && exit
 	@echo "notice: add your cp, sed, chown and chmod commands here to customize stage and prod environments"
 	@echo "notice: reload/restart your server(s) for the current target action (stage or prod) here if needed"
 
 dist:
 	@echo "notice: add your rsync or bittorrent command(s) here for multi-server deployments if needed"
-
 
