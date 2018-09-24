@@ -2,7 +2,7 @@
 # Purpose: world's smallest but featureful three-environment build and deploy system for dev, stage and prod
 # Copyright: James Briggs, USA 2018
 # Environment: make
-# Usage: make [help|dev|stage|prod]
+# Usage: make [help|dev|stage|prod|dist]
 # License: MIT License
 # Notes:
 # - dev is your version control HEAD or master branch repo, and stage and prod get file exports. git and svn are supported.
