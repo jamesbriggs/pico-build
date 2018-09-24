@@ -25,7 +25,7 @@ only phony targets and the repo version. Thus ``make`` is used like a Lisp or Pr
 
 ```
 /var/
-     www/ (home folder)
+     www/ (build home)
          dev/
              html/
              cgi-bin/
