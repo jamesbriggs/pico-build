@@ -63,7 +63,7 @@ make prod
 make dist
 ```
 
-After you have tested the above, you can optionally run all deploy steps sequentially with this command (not recommended unless you have great tests):
+After you have tested the above, you can optionally run all of the deploy steps sequentially with this command (not recommended unless you have great tests):
 ```
 make all
 ```
