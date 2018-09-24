@@ -93,7 +93,7 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
 **Question:** In fact, ``pico-build`` is so small, how can you justify creating a Github project based on a 10-line ``Makefile``?
 
-**Answer:** Although the ``Makefile`` is very short, ``pico-build`` delivers on what it promises. A previous version in ``bash`` took about a week to design and much more code to get the same result.
+**Answer:** Although the ``Makefile`` is very short, ``pico-build`` delivers on what it promises. A previous version in ``bash`` took about a week to design and test, and required much more code to get the same result.
 
 ---
 
