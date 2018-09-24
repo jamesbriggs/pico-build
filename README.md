@@ -11,6 +11,7 @@ pico-build is a Makefile of only about 10 lines that:
 - updates the `dev/` folder using your version control system.
 - exports your tested version in `dev/` to `stage/` and `prod/` folders
 - can be setup in a minute or two.
+- for more information about make, see the [make homepage](https://www.gnu.org/software/make/)
 
 ## Typical Deploy Folder Structure for Web Server Projects
 
@@ -96,7 +97,7 @@ It can also be used to develop and/or create secure deploy processes.
 
 ---
 
-**Question:** How does the Makefile work?
+**Question:** How does the pico-build Makefile work?
 
 **Answer:** pico-build uses basic make functionality:
 1. help, dev, stage and work are make targets, or actions. When you say `make dev`, dev is the target rule and $@ is assigned 'dev'.
@@ -116,7 +117,7 @@ It can also be used to develop and/or create secure deploy processes.
 
 ---
 
-**Question:** I copypasta'ed your Makefile and now it doesn't work. Why?
+**Question:** I copypasta'ed your Makefile and it doesn't seem to work for me. Why?
 
 **Answer:** make requires tab characters before bash commands, so check if you accidently converted the tabs to spaces. (vim will helpfully show red lines if you do that.)
 
