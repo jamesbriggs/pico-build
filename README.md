@@ -54,7 +54,7 @@ make prod
 make dist
 ```
 
-or to run all squentially:
+or to run all targets sequentially:
 ```
 make world
 ```
