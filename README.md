@@ -128,6 +128,7 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 **Answer:** ``pico-build`` uses basic ``make`` functionality:
 1. ``help``, ``check``, ``dev``, ``stage``, ``prod``, ``dist`` and ``all`` are ``make`` targets, or actions. When you say `make dev`, ``dev`` is the target rule and ``$@`` is assigned 'dev'.
 2. `DEBUG` toggles `$(DISP)` to @ or blank to control ``make``'s display of command execution.
+3. You can use ``make -n``, which is the dry-run mode, to see what commands that ``make`` would execute.
 
 ---
 
