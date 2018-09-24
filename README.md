@@ -70,55 +70,55 @@ It can also be used to develop and/or create secure deploy processes.
 
 ## FAQ
 
-Question: Why is the name pico-build?
+**Question:** Why is the name pico-build?
 
-Answer: Originally I wanted to use nano-build, but [nano-os](https://github.com/nanosoft-net/nano-os) already has a build system.
-
----
-
-Question: It's very small, but aren't you cheating by using the make program?
-
-Answer: Yes. Yes I am. Shamelessly.
+**Answer:** Originally I wanted to use nano-build, but [nano-os](https://github.com/nanosoft-net/nano-os) already has a build system.
 
 ---
 
-Question: In fact, pico-build is so small, how can you justify creating a Github project based on a 10-line Makefile?
+**Question:** It's very small, but aren't you cheating by using the make program?
 
-Answer: Although the Makefile is very short, pico-build delivers on what it promises. A previous version in bash took about a week to design and much more code to get the same result.
+**Answer:** Yes. Yes I am. Shamelessly.
 
 ---
 
-Question: Can pico-build be run by cron?
+**Question:** In fact, pico-build is so small, how can you justify creating a Github project based on a 10-line Makefile?
 
-Answer: Yes, but you'll need to do 2 things:
+**Answer:** Although the Makefile is very short, pico-build delivers on what it promises. A previous version in bash took about a week to design and much more code to get the same result.
+
+---
+
+**Question:** Can pico-build be run by cron?
+
+**Answer:** Yes, but you'll need to do 2 things:
 1. ensure make can still read your version control credentials
 2. and quiet or redirect output to a file to reduce the cron email notifications.
 
 ---
 
-Question: How does the Makefile work?
+**Question:** How does the Makefile work?
 
-Answer: pico-build uses basic make functionality:
+**Answer:** pico-build uses basic make functionality:
 1. help, dev, stage and work are make targets, or actions. When you say `make dev`, dev is the target rule and $@ is assigned 'dev'.
 2. DEBUG toggles $(DISP) to @ or blank to control make's display of command execution.
 
 ---
 
-Question: How can I ask pico-build to check for changes in dev/ before doing pointless stage and prod deploys?
+**Question:** How can I ask pico-build to check for changes in dev/ before doing pointless stage and prod deploys?
 
-Answer: As with any Makefile, remove dev from the .PHONY list, and add a filename that changes just after dev: (on the same line.)
-
----
-
-Question: I copypasta'ed your Makefile and now it doesn't work. Why?
-
-Answer: make requires tab characters before bash commands, so check if you accidently converted those to spaces. (vim will helpfully show red lines if you do that.)
+**Answer:** As with any Makefile, remove dev from the .PHONY list, and add a filename that changes just after dev: (on the same line.)
 
 ---
 
-Question: Is there commercial support available for pico-build?
+**Question:** I copypasta'ed your Makefile and now it doesn't work. Why?
 
-Answer: Yes, please contact the author to pay for design and/or support.
+**Answer:** make requires tab characters before bash commands, so check if you accidently converted the tabs to spaces. (vim will helpfully show red lines if you do that.)
+
+---
+
+**Question:** Is there commercial support available for pico-build?
+
+**Answer:** Yes, please contact the author to pay for design and/or support.
 
 ## License
 
