@@ -29,7 +29,7 @@ pico-build is a Makefile of only about 10 lines that:
              cgi-bin/
 ```
 
-By using sudo or root, pico-build can be used to secure your web server.
+By running pico-build using sudo or root, pico-build can be used to secure your web server file ownership and permissions.
 
 ## Usage
 
