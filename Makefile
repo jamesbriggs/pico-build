@@ -5,7 +5,7 @@
 # Usage: make [help|dev|stage|prod]
 # License: MIT License
 # Notes:
-# - dev is your version control HEAD or master branch repo, and stage and prod are exported copies. git and svn are supported.
+# - dev is your version control HEAD or master branch repo, and stage and prod get file exports. git and svn are supported.
 # - in a Makefile, column 1 is for make commands. For bash shell commands, tab over at least once.
 # - Multi-line shell commands must have semi-colons and ending backslashes
 # - for an advanced Makefile sample, see https://github.com/nanosoft-net/nano-os/blob/master/build/make/generic_makefile
@@ -39,3 +39,4 @@ stage prod:
 
 dist:
 	@echo "notice: add your rsync or bittorrent command(s) here for multi-server deployments if needed"
+
