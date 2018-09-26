@@ -6,10 +6,13 @@
 # Environment: make
 # Usage: make [help|check|dev|stage|prod|dist|all]
 # License: MIT License
+# Download: wget https://raw.githubusercontent.com/jamesbriggs/pico-build/master/Makefile
 # Notes:
 # - dev is your version control HEAD or master branch repo, and stage and prod are file exports. git and svn are supported.
 # - in a Makefile, column 1 is for make commands. For bash shell commands, tab over at least once.
 # - multi-line shell commands must have semi-colons and ending backslashes and $ is $$
+# - Each update command in a Makefile rule is executed in a separate shell unless you use GNU make's .ONESHELL
+#   feature. See https://www.gnu.org/software/make/manual/html_node/One-Shell.html
 # - for an advanced Makefile sample, see https://github.com/nanosoft-net/nano-os/blob/master/build/make/generic_makefile
 
 ### start of user-defined configuration settings
@@ -46,11 +49,10 @@ endif
 # these make targets are not to be considered as filenames:
 .PHONY: all check dev dist help prod stage
 
-help:
-	@echo "usage: $(MAKE) [help|check|dev|stage|prod|dist|all]"
+help: ; @echo "usage: $(MAKE) [help|check|dev|stage|prod|dist|all]"
 
 all: dev stage prod dist
-	@echo "notice: this make target can run several other targets sequentially. stage and prod are adequate."
+	echo "notice: this make target can run several other targets sequentially. stage and prod are adequate."
 
 check:
 	@echo "notice: checking your setup. check is intended to be used right after your initial clone, not per deploy."
