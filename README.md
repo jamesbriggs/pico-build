@@ -23,22 +23,9 @@ only phony targets and the repo version. Thus ``make`` is used like a Lisp or Pr
 
 ## Typical Deploy Folder Structure for Web Server Projects
 
-```
-/var/
-     www/ (build home)
-         dev/
-             html/
-             cgi-bin/
-             config/ (configs start here and are copied to stage/ and prod/ during deploys)
-         stage/
-             html/
-             cgi-bin/
-         prod/
-             html/
-             cgi-bin/
-```
+![pico-build folder flow](pico-build-flow.png)
 
-By running ``pico-build`` using ``sudo`` or ``root``, ``pico-build`` can be used to secure your web server file ownership and permissions.
+Also, by running ``pico-build`` using ``sudo`` or ``root``, ``pico-build`` can be used to secure your web server file ownership and permissions.
 
 ## Usage
 
