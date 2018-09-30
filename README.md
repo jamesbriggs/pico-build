@@ -12,8 +12,14 @@ It is intended for individual programmers and small teams who want to test and d
 - exports your tested version in `dev/` to `stage/` and `prod/` folders
 - has a dist target for multi-server deploys using rsync or bittorrent
 - can be setup in a minute or two
-- for more information about ``make``, see the [make homepage](https://www.gnu.org/software/make/)
+- for more information about ``make``, see the [GNU make homepage](https://www.gnu.org/software/make/)
 - source code: [Makefile](Makefile)
+
+## Typical Deploy Folder Structure for Web Server Projects
+
+![pico-build folder flow](pico-build-flow.png)
+
+Also, by running ``pico-build`` using ``sudo`` or ``root``, ``pico-build`` can be used to secure your web server file ownership and permissions.
 
 ## Advanced Concepts
 
@@ -21,12 +27,6 @@ Normally, most ``make`` dependencies are file timestamps. However, the ``pico-bu
 only phony targets and the repo version. Thus ``make`` is used like a Lisp or Prolog rules engine. The bash ``exit`` command is used to stop early, kind of like tail recursion optimization.
 
 ``pico-build`` is a locally-centric build system, but that's often not a limitation since it can fetch from remote version control systems, and deploy to remote clusters as needed.
-
-## Typical Deploy Folder Structure for Web Server Projects
-
-![pico-build folder flow](pico-build-flow.png)
-
-Also, by running ``pico-build`` using ``sudo`` or ``root``, ``pico-build`` can be used to secure your web server file ownership and permissions.
 
 ## Usage
 
