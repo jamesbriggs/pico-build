@@ -56,7 +56,7 @@ all: dev stage prod dist
 
 check:
 	@echo "notice: checking your setup. check is intended to be used right after your initial clone, not per deploy."
-	@cd dev || { echo "error: dev/ not found. are we in the build home directory? if so, is there an initial repo clone?"; \
+	@cd dev || { echo "error: dev/ not found. is this the build home directory? if so, is there an initial repo clone?"; \
 		exit 1; }
 	@which tar
 	@which git
