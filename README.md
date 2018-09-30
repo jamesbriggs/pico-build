@@ -37,7 +37,7 @@ usage: make [help|check|dev|stage|prod|dist|all]
 ## Getting Started
 
 1. choose your ``git`` or ``svn`` repo and configure your login environment to do a successful password-less `git pull` (or equivalent command) from the terminal
-2. add .current_version to your .gitignore file and commit .gitignore
+2. add ``.current_version`` to your ``.gitignore`` file and commit ``.gitignore``
 3. ``cd`` to your build home directory which is the parent of your `dev/`, `stage/` and `prod/` folders and do an initial `git clone` to the ``dev`` folder
 4. ``cp`` the ``pico-build`` ``Makefile`` to the home directory and configure as needed. Change the permissions on ``Makefile``so that unauthorized users cannot modify it, usually with `chown root:root Makefile; chmod 644 Makefile`
 5. do `make check` to do an initial test of your configuration
@@ -123,19 +123,19 @@ To install ``make`` on CentOS or Redhat, type ``sudo yum install make``.
 
 **Question:** I'm new to version control but I want to use ``pico-build``. Which version control program should I use?
 
-**Answer:** You should use the same version control program that your company or friends use. Github uses ``git``. Otherwise, ``svn`` is my favorite and is the easiest to learn because of its clear command structure.
+**Answer:** You should use the same version control program that your company or friends use. Github uses ``git``. Otherwise, ``svn`` is my favorite and is the easiest to learn because of its clear command structure. Set the ``VC_PRODUCT`` variable in ``Makefile`` to select either ``git`` or ``svn.``
 
 ---
 
 **Question:** Does ``pico-build`` check for changes in `dev/` before doing pointless ``stage`` and ``prod`` deploys?
 
-**Answer:** Yes, this is handled by comparing the content of dev/.current_version against the same filename in stage/ or prod/.
+**Answer:** Yes, this is handled by comparing the content of ``dev/.current_version`` against the same filename in ``stage/`` or ``prod/``.
 
 ---
 
 **Question:** I copypasta'ed your ``Makefile`` and it doesn't seem to work for me. Why?
 
-**Answer:** ``make`` requires tab characters before ``bash`` commands, so check if you accidently converted the tabs to spaces. (``vim`` will helpfully show red lines if you do that.) Otherwise run with make -n for a dry run.
+**Answer:** ``make`` requires tab characters before ``bash`` commands, so check if you accidently converted the tabs to spaces. (``vim`` will helpfully show red lines if you do that.) Otherwise run with ``make -n`` for a dry run.
 
 ---
 
