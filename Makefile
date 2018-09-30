@@ -1,4 +1,4 @@
-# #!/usr/bin/make -f
+#!/usr/bin/make -f
 #
 # Program: pico-build Makefile
 # Purpose: all's smallest but featureful three-environment build and deploy system for dev, stage and prod
