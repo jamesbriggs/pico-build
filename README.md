@@ -24,9 +24,11 @@ Also, by running ``pico-build`` using ``sudo`` or ``root``, ``pico-build`` can b
 ## Advanced Concepts
 
 Normally, most ``make`` dependencies are file timestamps. However, the ``pico-build`` ``Makefile`` does not use timestamps,
-only phony targets and the repo version. Thus ``make`` is used like a Lisp or Prolog rules engine. The bash ``exit`` command is used to stop early, kind of like tail recursion optimization.
+only phony targets and the repo version. Thus ``make`` is used like a Lisp or Prolog functional programming rules engine. The bash ``exit`` command is used to stop early, like Prolog's cut.
 
 ``pico-build`` is a locally-centric build system, but that's often not a limitation since it can fetch from remote version control systems, and deploy to remote clusters as needed.
+
+[Functional programming with GNU make](http://lambda-the-ultimate.org/node/85)
 
 ## Usage
 
