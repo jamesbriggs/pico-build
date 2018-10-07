@@ -10,7 +10,7 @@ It is intended for individual programmers and small teams who want to test and d
 - is a command-line tool that does input validation on the deploy environment choice
 - updates the `dev/` folder using your version control system
 - exports your tested version in `dev/` to `stage/` and `prod/` folders
-- has a dist target for multi-server deploys using rsync or bittorrent
+- has a distribution target, dist, for multi-server deploys using rsync or bittorrent
 - can be setup in a minute or two
 - for more information about ``make``, see the [GNU make homepage](https://www.gnu.org/software/make/)
 - source code: [Makefile](Makefile)
